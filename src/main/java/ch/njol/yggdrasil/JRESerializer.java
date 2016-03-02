@@ -63,7 +63,6 @@ public class JRESerializer extends YggdrasilSerializer<Object> {
 		return null;
 	}
 	
-	@SuppressWarnings("null")
 	@Override
 	public Fields serialize(final Object o) {
 		if (!set.contains(o.getClass()))
@@ -131,11 +130,11 @@ public class JRESerializer extends YggdrasilSerializer<Object> {
 		throw new StreamCorruptedException();
 	}
 	
-	@SuppressWarnings({"unchecked", "null"})
+	@SuppressWarnings("unchecked")
 	@Override
 	public <E> E deserialize(Class<E> c, Fields fields) throws StreamCorruptedException, NotSerializableException {
 		if (c == UUID.class) {
-			return (E) new UUID(fields.getPrimitive("mostSigBits", Long.TYPE).longValue(), fields.getPrimitive("leastSigBits", Long.TYPE).longValue());
+			return (E) new UUID(((Long)fields.getPrimitive("mostSigBits", Long.TYPE)).longValue(), ((Long)fields.getPrimitive("leastSigBits", Long.TYPE)).longValue());
 		}
 		throw new StreamCorruptedException();
 	}

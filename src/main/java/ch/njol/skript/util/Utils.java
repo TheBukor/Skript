@@ -104,6 +104,7 @@ public abstract class Utils {
 	 * @param type Can be null for any entity
 	 * @return The entity's target
 	 */
+	@SuppressWarnings("unchecked")
 	@Nullable
 	public static <T extends Entity> T getTarget(final LivingEntity entity, @Nullable final EntityData<T> type) {
 		if (entity instanceof Creature) {

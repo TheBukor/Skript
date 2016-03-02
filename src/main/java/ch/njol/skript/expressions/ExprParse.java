@@ -111,7 +111,7 @@ public class ExprParse extends SimpleExpression<Object> {
 					b.append(c);
 					b.append(pattern.charAt(i + 1));
 					i++;
-				} else if (c == '\u00a6') {
+				} else if (c == '¦') {
 					b.append("\\¦");
 				} else {
 					b.append(c);

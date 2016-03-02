@@ -65,7 +65,6 @@ public class Direction implements YggdrasilRobustSerializable {
 	
 	public final static BlockFace BF_X = findFace(1, 0, 0), BF_Y = findFace(0, 1, 0), BF_Z = findFace(0, 0, 1);
 	
-	@SuppressWarnings("null")
 	private final static BlockFace findFace(final int x, final int y, final int z) {
 		for (final BlockFace f : BlockFace.values()) {
 			if (f.getModX() == x && f.getModY() == y && f.getModZ() == z)

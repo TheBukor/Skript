@@ -55,7 +55,7 @@ public class ExprRemainingAir extends SimplePropertyExpression<LivingEntity, Tim
 	
 	@Override
 	public Timespan convert(final LivingEntity e) {
-		return Timespan.fromTicks_i(e.getRemainingAir());
+		return Timespan.fromTicks(e.getRemainingAir());
 	}
 	
 }

@@ -99,7 +99,6 @@ public class EffIgnite extends Effect {
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public String toString(final @Nullable Event e, final boolean debug) {
 		if (ignite)

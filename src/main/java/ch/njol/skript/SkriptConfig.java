@@ -128,7 +128,6 @@ public abstract class SkriptConfig {
 				}
 			});
 	
-	@SuppressWarnings("null")
 	public final static Option<EventPriority> defaultEventPriority = new Option<EventPriority>("plugin priority", EventPriority.NORMAL, new Converter<String, EventPriority>() {
 		@Override
 		@Nullable

@@ -311,6 +311,7 @@ public class ScriptCommand implements CommandExecutor {
 			try {
 				final Field topics = IndexHelpTopic.class.getDeclaredField("allTopics");
 				topics.setAccessible(true);
+				@SuppressWarnings("unchecked")
 				final ArrayList<HelpTopic> as = new ArrayList<HelpTopic>((Collection<HelpTopic>) topics.get(aliases));
 				for (final String alias : activeAliases) {
 					final HelpTopic at = new CommandAliasHelpTopic("/" + alias, "/" + getLabel(), help);
@@ -332,6 +333,7 @@ public class ScriptCommand implements CommandExecutor {
 			try {
 				final Field topics = IndexHelpTopic.class.getDeclaredField("allTopics");
 				topics.setAccessible(true);
+				@SuppressWarnings("unchecked")
 				final ArrayList<HelpTopic> as = new ArrayList<HelpTopic>((Collection<HelpTopic>) topics.get(aliases));
 				as.removeAll(helps);
 				topics.set(aliases, as);

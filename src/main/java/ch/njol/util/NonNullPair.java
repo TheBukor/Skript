@@ -41,6 +41,7 @@ public class NonNullPair<T1, T2> extends Pair<T1, T2> {
 		return first;
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void setFirst(final T1 first) {
 		this.first = first;
@@ -52,6 +53,7 @@ public class NonNullPair<T1, T2> extends Pair<T1, T2> {
 		return second;
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void setSecond(final T2 second) {
 		this.second = second;

@@ -70,7 +70,7 @@ public class SimpleLiteral<T> implements Literal<T>, DefaultExpression<T> {
 		this.isDefault = false;
 	}
 	
-	@SuppressWarnings({"null"})
+	@SuppressWarnings({"null", "unchecked"})
 	public SimpleLiteral(final T data, final boolean isDefault) {
 		assert data != null;
 		this.data = (T[]) Array.newInstance(data.getClass(), 1);

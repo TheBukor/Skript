@@ -130,7 +130,6 @@ public final class Fields implements Iterable<FieldContext> {
 			isPrimitiveValue = false;
 		}
 		
-		@SuppressWarnings("null")
 		public void setPrimitive(final Object value) {
 			assert value != null && Tag.isWrapper(value.getClass());
 			this.value = value;

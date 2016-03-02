@@ -268,7 +268,7 @@ public class FlatFileStorage extends VariablesStorage {
 		return r.toArray(new String[r.size()]);
 	}
 	
-	@SuppressWarnings({"resource", "unused", "null"})
+	@SuppressWarnings("resource")
 	@Override
 	protected boolean save(final String name, final @Nullable String type, final @Nullable byte[] value) {
 		synchronized (connectionLock) {
@@ -325,7 +325,7 @@ public class FlatFileStorage extends VariablesStorage {
 		}
 	}
 	
-	@SuppressWarnings({"unused", "null"})
+	@SuppressWarnings("unused")
 	@Override
 	protected final boolean connect() {
 		synchronized (connectionLock) {

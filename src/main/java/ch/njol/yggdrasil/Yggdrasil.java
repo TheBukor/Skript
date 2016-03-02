@@ -157,6 +157,8 @@ public final class Yggdrasil {
 					((YggdrasilSerializable.class.isAssignableFrom(c) || getSerializer(c) != null) && newInstance(c) != c);// whatever, just make true out if it (null is a valid return value)
 		} catch (final StreamCorruptedException e) { // thrown by newInstance if the class does not provide a correct constructor or is abstract
 			return false;
+		} catch (final NotSerializableException e) {
+			return false;
 		}
 	}
 	
@@ -324,11 +326,18 @@ public final class Yggdrasil {
 	
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	@Nullable
-	final Object newInstance(final Class<?> c) throws StreamCorruptedException {
+	final Object newInstance(final Class<?> c) throws StreamCorruptedException, NotSerializableException {
 		final YggdrasilSerializer s = getSerializer(c);
 		if (s != null) {
 			if (!s.canBeInstantiated(c)) { // only used by isSerializable - return null if OK, throw an YggdrasilException if not
-				return null;
+				try {
+					final Object o = s.deserialize(c, new Fields(this));
+					if (o != null)
+						return null;
+					throw new YggdrasilException("YggdrasilSerializer " + s + " returned null from deserialize(" + c + ", new Fields())");
+				} catch (final StreamCorruptedException e) {
+					return null;
+				}
 			}
 			final Object o = s.newInstance(c);
 			if (o == null)

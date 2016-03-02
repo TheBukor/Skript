@@ -441,7 +441,7 @@ public abstract class EntityData<E extends Entity> implements SyntaxElement, Ygg
 		}
 	}
 	
-	@SuppressWarnings({"null"})
+	@SuppressWarnings({"null", "unchecked"})
 	public E[] getAll(final World... worlds) {
 		assert worlds != null && worlds.length > 0 : Arrays.toString(worlds);
 		final List<E> list = new ArrayList<E>();
@@ -459,7 +459,7 @@ public abstract class EntityData<E extends Entity> implements SyntaxElement, Ygg
 	 * @param worlds worlds or null for all
 	 * @return All entities of this type in the given worlds
 	 */
-	@SuppressWarnings({"null"})
+	@SuppressWarnings({"null", "unchecked"})
 	public final static <E extends Entity> E[] getAll(final EntityData<?>[] types, final Class<E> type, @Nullable World[] worlds) {
 		assert types.length > 0;
 		if (type == Player.class) {
@@ -500,6 +500,7 @@ public abstract class EntityData<E extends Entity> implements SyntaxElement, Ygg
 		for (final EntityDataInfo<?> info : infos) {
 			if (info.entityClass != Entity.class && (e == null ? info.entityClass.isAssignableFrom(c) : info.entityClass.isInstance(e))) {
 				try {
+					@SuppressWarnings("unchecked")
 					final EntityData<E> d = (EntityData<E>) info.c.newInstance();
 					if (d.init(c, e))
 						return d;
