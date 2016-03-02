@@ -54,14 +54,12 @@ public class BidiHashMap<T1, T2> extends HashMap<T1, T2> implements BidiMap<T1, 
 		return other;
 	}
 	
-	@SuppressWarnings("null")
 	@Override
 	@Nullable
 	public T1 getKey(final T2 value) {
 		return other.get(value);
 	}
-	
-	@SuppressWarnings("null")
+
 	@Override
 	@Nullable
 	public T2 getValue(final @Nullable T1 key) {
@@ -86,7 +84,6 @@ public class BidiHashMap<T1, T2> extends HashMap<T1, T2> implements BidiMap<T1, 
 		return oldValue;
 	}
 	
-	@SuppressWarnings("null")
 	@Override
 	public void putAll(final Map<? extends T1, ? extends T2> m) {
 		for (final Entry<? extends T1, ? extends T2> e : m.entrySet()) {

@@ -79,6 +79,7 @@ import ch.njol.yggdrasil.Fields;
  * @author Peter Güttinger
  */
 // TODO vectors
+@SuppressWarnings("null")
 public class BukkitClasses {
 	
 	public BukkitClasses() {}
@@ -192,7 +193,6 @@ public class BukkitClasses {
 				})
 				.changer(DefaultChangers.blockChanger)
 				.serializer(new Serializer<Block>() {
-					@SuppressWarnings("null")
 					@Override
 					@Nullable
 					public Fields serialize(final Block b) {
@@ -292,7 +292,6 @@ public class BukkitClasses {
 						return "(" + l.getWorld().getName() + ":" + l.getX() + "," + l.getY() + "," + l.getZ() + "|yaw=" + l.getYaw() + "/pitch=" + l.getPitch() + ")";
 					}
 				}).serializer(new Serializer<Location>() {
-					@SuppressWarnings("null")
 					@Override
 					public Fields serialize(final Location l) throws NotSerializableException {
 						final Fields f = new Fields();
@@ -360,7 +359,6 @@ public class BukkitClasses {
 				.after("string")
 				.defaultExpression(new EventValueExpression<World>(World.class))
 				.parser(new Parser<World>() {
-					@SuppressWarnings("null")
 					private final Pattern parsePattern = Pattern.compile("(?:(?:the )?world )?\"(.+)\"", Pattern.CASE_INSENSITIVE);
 					
 					@Override
@@ -490,7 +488,6 @@ public class BukkitClasses {
 					@Nullable
 					public Player parse(final String s, final ParseContext context) {
 						if (context == ParseContext.COMMAND) {
-							@SuppressWarnings("deprecation")
 							final List<Player> ps = Bukkit.matchPlayer(s);
 							if (ps.size() == 1)
 								return ps.get(0);
@@ -984,7 +981,6 @@ public class BukkitClasses {
 					}
 				})
 				.serializer(new Serializer<Chunk>() {
-					@SuppressWarnings("null")
 					@Override
 					@Nullable
 					public Fields serialize(final Chunk c) {

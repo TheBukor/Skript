@@ -104,13 +104,12 @@ public class ExpressionList<T> implements Expression<T> {
 			if (t.length > 0)
 				return t;
 		}
-		@SuppressWarnings("unchecked")
 		final T[] r = (T[]) Array.newInstance(returnType, 0);
 		assert r != null;
 		return r;
 	}
 	
-	@SuppressWarnings({"null", "unchecked"})
+	@SuppressWarnings({"null"})
 	@Override
 	public T[] getAll(final Event e) {
 		final ArrayList<T> r = new ArrayList<T>();
@@ -325,7 +324,6 @@ public class ExpressionList<T> implements Expression<T> {
 			isSimpleList &= expressions[i].isSingle();
 		}
 		if (isLiteralList && isSimpleList) {
-			@SuppressWarnings("unchecked")
 			final T[] values = (T[]) Array.newInstance(returnType, expressions.length);
 			for (int i = 0; i < values.length; i++)
 				values[i] = ((Literal<? extends T>) expressions[i]).getSingle();

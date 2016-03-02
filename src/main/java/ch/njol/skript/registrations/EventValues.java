@@ -135,7 +135,7 @@ public class EventValues {
 	 */
 	@Nullable
 	public static <T, E extends Event> T getEventValue(final E e, final Class<T> c, final int time) {
-		@SuppressWarnings({"null", "unchecked"})
+		@SuppressWarnings({"null"})
 		final Getter<? extends T, ? super E> g = EventValues.getEventValueGetter((Class<E>) e.getClass(), c, time);
 		if (g == null)
 			return null;

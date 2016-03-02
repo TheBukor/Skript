@@ -87,8 +87,7 @@ public class CaseInsensitiveString implements Serializable, Comparable<CharSeque
 	public CaseInsensitiveString subSequence(final int start, final int end) {
 		return new CaseInsensitiveString("" + s.substring(start, end), locale);
 	}
-	
-	@SuppressWarnings("null")
+
 	@Override
 	public int compareTo(final CharSequence s) {
 		return lc.compareTo(s.toString().toLowerCase(locale));

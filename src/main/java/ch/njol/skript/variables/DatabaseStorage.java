@@ -263,6 +263,7 @@ public class DatabaseStorage extends VariablesStorage {
 			
 			// periodically executes queries to keep the collection alive
 			Skript.newThread(new Runnable() {
+				@SuppressWarnings("null")
 				@Override
 				public void run() {
 					while (!closed) {
@@ -290,6 +291,7 @@ public class DatabaseStorage extends VariablesStorage {
 		
 		// start committing thread. Its first execution will also commit the first batch of changed variables.
 		Skript.newThread(new Runnable() {
+			@SuppressWarnings("null")
 			@Override
 			public void run() {
 				long lastCommit;
@@ -362,6 +364,7 @@ public class DatabaseStorage extends VariablesStorage {
 		return connect(false);
 	}
 	
+	@SuppressWarnings("null")
 	private final boolean connect(final boolean first) {
 		synchronized (db) {
 			// isConnected doesn't work in SQLite
@@ -425,6 +428,7 @@ public class DatabaseStorage extends VariablesStorage {
 		return true;
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	protected void disconnect() {
 		synchronized (db) {
@@ -518,6 +522,7 @@ public class DatabaseStorage extends VariablesStorage {
 	
 	long lastRowID = -1;
 	
+	@SuppressWarnings("null")
 	protected void checkDatabase() {
 		try {
 			final long lastRowID; // local variable as this is used to clean the database below

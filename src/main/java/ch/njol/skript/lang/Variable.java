@@ -86,7 +86,6 @@ public class Variable<T> implements Expression<T> {
 	@Nullable
 	private final Variable<?> source;
 	
-	@SuppressWarnings("unchecked")
 	private Variable(final VariableString name, final Class<? extends T>[] types, final boolean local, final boolean list, final @Nullable Variable<?> source) {
 		assert name != null;
 		assert types != null && types.length > 0;
@@ -240,7 +239,6 @@ public class Variable<T> implements Expression<T> {
 	 * because the player object inside the variable will be a (kinda) dead variable
 	 * as a new player object has been created by the server.
 	 */
-	@SuppressWarnings({"deprecation"})
 	@Nullable Object convertIfOldPlayer(String key, Event event, @Nullable Object t){
 		if(SkriptConfig.enablePlayerVariableFix.value() && t != null && t instanceof Player){
 			Player p = (Player) t;
@@ -556,7 +554,6 @@ public class Variable<T> implements Expression<T> {
 		return getAll(e);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public T[] getAll(final Event e) {
 		if(list)

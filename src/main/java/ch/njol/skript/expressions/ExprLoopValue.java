@@ -133,7 +133,6 @@ public class ExprLoopValue extends SimpleExpression<Object> {
 		return true;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	@Nullable
 	protected <R> ConvertedExpression<Object, ? extends R> getConvertedExpr(final Class<R>... to) {
@@ -161,7 +160,6 @@ public class ExprLoopValue extends SimpleExpression<Object> {
 	@Nullable
 	protected Object[] get(final Event e) {
 		if (isVariableLoop) {
-			@SuppressWarnings("unchecked")
 			final Entry<String, Object> current = (Entry<String, Object>) loop.getCurrent(e);
 			if (current == null)
 				return null;
@@ -181,7 +179,6 @@ public class ExprLoopValue extends SimpleExpression<Object> {
 		if (e == null)
 			return name;
 		if (isVariableLoop) {
-			@SuppressWarnings("unchecked")
 			final Entry<String, Object> current = (Entry<String, Object>) loop.getCurrent(e);
 			if (current == null)
 				return Classes.getDebugMessage(null);

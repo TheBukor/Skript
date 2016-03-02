@@ -222,9 +222,9 @@ public class Noun extends Message {
 	public static NonNullPair<String, String> getPlural(final String s) {
 		final NonNullPair<String, String> r = new NonNullPair<String, String>("", "");
 		int part = 3; // 1 = singular, 2 = plural, 3 = both
-		int i = StringUtils.count(s, '¦');
+		int i = StringUtils.count(s, '\u00a6');
 		int last = 0, c = -1;
-		while ((c = s.indexOf('¦', c + 1)) != -1) {
+		while ((c = s.indexOf('\u00a6', c + 1)) != -1) {
 			final String x = s.substring(last, c);
 			if ((part & 1) != 0)
 				r.setFirst(r.getFirst() + x);
@@ -251,7 +251,7 @@ public class Noun extends Message {
 	 * @return The same string with normalized plural markers
 	 */
 	public static String normalizePluralMarkers(final String s) {
-		final int c = StringUtils.count(s, '¦');
+		final int c = StringUtils.count(s, '\u00a6');
 		if (c % 3 == 0)
 			return s;
 		if (c % 3 == 2) {
@@ -260,7 +260,7 @@ public class Noun extends Message {
 				return s + "¦";
 			return s.substring(0, g) + "¦" + s.substring(g);
 		}
-		final int x = s.lastIndexOf('¦');
+		final int x = s.lastIndexOf('\u00a6');
 		final int g = s.lastIndexOf('@');
 		if (g == -1)
 			return s.substring(0, x) + "¦" + s.substring(x) + "¦";

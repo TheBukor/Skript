@@ -49,11 +49,11 @@ public class PluralizingArgsMessage extends Message {
 			if ('0' <= s.charAt(i) && s.charAt(i) <= '9') {
 				if (Math.abs(StringUtils.numberAfter(s, i)) != 1)
 					plural = true;
-			} else if (s.charAt(i) == '¦') {
-				final int c1 = s.indexOf('¦', i + 1);
+			} else if (s.charAt(i) == '\u00a6') {
+				final int c1 = s.indexOf('\u00a6', i + 1);
 				if (c1 == -1)
 					break;
-				final int c2 = s.indexOf('¦', c1 + 1);
+				final int c2 = s.indexOf('\u00a6', c1 + 1);
 				if (c2 == -1)
 					break;
 				b.append(s.substring(last, i));

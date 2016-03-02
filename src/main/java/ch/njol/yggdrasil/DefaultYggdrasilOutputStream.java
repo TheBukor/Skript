@@ -30,6 +30,7 @@ import java.util.HashMap;
 
 public final class DefaultYggdrasilOutputStream extends YggdrasilOutputStream {
 	
+	@SuppressWarnings("null")
 	private final static Charset UTF_8 = Charset.forName("UTF-8");
 	
 	private final OutputStream out;
@@ -142,6 +143,7 @@ public final class DefaultYggdrasilOutputStream extends YggdrasilOutputStream {
 		write(b ? 1 : 0);
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	protected void writePrimitive_(final Object o) throws IOException {
 		switch (getPrimitiveFromWrapper(o.getClass())) {
@@ -211,6 +213,7 @@ public final class DefaultYggdrasilOutputStream extends YggdrasilOutputStream {
 		writeClass_(c);
 	}
 	
+	@SuppressWarnings("null")
 	private void writeClass_(Class<?> c) throws IOException {
 		while (c.isArray()) {
 			writeTag(T_ARRAY);

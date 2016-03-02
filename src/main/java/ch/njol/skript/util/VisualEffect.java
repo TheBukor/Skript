@@ -54,7 +54,7 @@ import ch.njol.yggdrasil.YggdrasilSerializable;
  */
 public final class VisualEffect implements SyntaxElement, YggdrasilSerializable {
 	private final static String LANGUAGE_NODE = "visual effects";
-	
+	@SuppressWarnings("null")
 	private static enum Type implements YggdrasilSerializable {
 		ENDER_SIGNAL(Effect.ENDER_SIGNAL),
 		MOBSPAWNER_FLAMES(Effect.MOBSPAWNER_FLAMES),

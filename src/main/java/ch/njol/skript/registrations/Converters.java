@@ -251,7 +251,6 @@ public abstract class Converters {
 	 * @param to
 	 * @return the converter or null if none exist
 	 */
-	@SuppressWarnings("unchecked")
 	@Nullable
 	public final static <F, T> Converter<? super F, ? extends T> getConverter(final Class<F> from, final Class<T> to) {
 		final Pair<Class<?>, Class<?>> p = new Pair<Class<?>, Class<?>>(from, to);
@@ -297,7 +296,6 @@ public abstract class Converters {
 	}
 	
 	public final static <F, T> T[] convert(final F[] from, final Class<T> to, final Converter<? super F, ? extends T> conv) {
-		@SuppressWarnings("unchecked")
 		T[] ts = (T[]) Array.newInstance(to, from.length);
 		int j = 0;
 		for (int i = 0; i < from.length; i++) {

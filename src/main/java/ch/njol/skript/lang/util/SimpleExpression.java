@@ -71,7 +71,6 @@ public abstract class SimpleExpression<T> implements Expression<T> {
 	 * <p>
 	 * Unlike {@link #get(Event)} you have to make sure that the this method's returned array is neither null nor contains null elements.
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public T[] getAll(final Event e) {
 		final T[] all = get(e);
@@ -97,7 +96,6 @@ public abstract class SimpleExpression<T> implements Expression<T> {
 		return r;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public final T[] getArray(final Event e) {
 		final T[] all = get(e);

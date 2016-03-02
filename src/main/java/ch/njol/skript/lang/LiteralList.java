@@ -86,7 +86,6 @@ public class LiteralList<T> extends ExpressionList<T> implements Literal<T> {
 		for (int i = 0; i < expressions.length; i++)
 			isSimpleList &= expressions[i].isSingle();
 		if (isSimpleList) {
-			@SuppressWarnings("unchecked")
 			final T[] values = (T[]) Array.newInstance(getReturnType(), expressions.length);
 			for (int i = 0; i < values.length; i++)
 				values[i] = ((Literal<? extends T>) expressions[i]).getSingle();

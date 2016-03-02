@@ -97,7 +97,7 @@ public class RabbitData extends EntityData<Rabbit> {
         return e instanceof RabbitData && (type == 0 || ((RabbitData) e).type == type);
     }
     
-	private static Rabbit.Type typeFromInt(int i){
+	private static @org.eclipse.jdt.annotation.Nullable Rabbit.Type typeFromInt(int i){
     	switch(i){
     		case 1:
     			return Rabbit.Type.BLACK;

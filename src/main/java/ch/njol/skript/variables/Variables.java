@@ -80,7 +80,6 @@ public abstract class Variables {
 				init(); // separate method for the annotation
 			}
 			
-			@SuppressWarnings("unchecked")
 			private final void init() {
 				// used by asserts
 				info = (ClassInfo<? extends ConfigurationSerializable>) Classes.getExactClassInfo(Object.class);
@@ -130,6 +129,7 @@ public abstract class Variables {
 		
 		// reports once per second how many variables were loaded. Useful to make clear that Skript is still doing something if it's loading many variables
 		final Thread loadingLoggerThread = new Thread() {
+			@SuppressWarnings({"null", "unused"})
 			@Override
 			public void run() {
 				while (true) {
@@ -349,6 +349,7 @@ public abstract class Variables {
 	 * @param source
 	 * @return Whether the variable was stored somewhere. Not valid while storages are loading.
 	 */
+	@SuppressWarnings({"null", "unused"})
 	final static boolean variableLoaded(final String name, final @Nullable Object value, final VariablesStorage source) {
 		assert Bukkit.isPrimaryThread(); // required by serialisation
 		

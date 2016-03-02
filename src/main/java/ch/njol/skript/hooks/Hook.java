@@ -45,7 +45,6 @@ public abstract class Hook<P extends Plugin> {
 	
 	@SuppressWarnings("null")
 	public Hook() throws IOException {
-		@SuppressWarnings("unchecked")
 		final P p = (P) Bukkit.getPluginManager().getPlugin(getName());
 		plugin = p;
 		if (p == null)

@@ -106,7 +106,6 @@ public abstract class Commands {
 		init(); // separate method for the annotation
 	}
 	
-	@SuppressWarnings("unchecked")
 	private final static void init() {
 		try {
 			if (Bukkit.getPluginManager() instanceof SimplePluginManager) {
