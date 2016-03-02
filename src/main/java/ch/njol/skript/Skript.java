@@ -401,7 +401,12 @@ public final class Skript extends JavaPlugin implements Listener {
 				final long vld = System.currentTimeMillis() - vls;
 				if (logNormal())
 					info("Loaded " + Variables.numVariables() + " variables in " + ((vld / 100) / 10.) + " seconds");
-				
+				info(Skript.isRunningMinecraft(1, 4, 3) ? "Version is later than 1.4.3" : "Version is earlier than 1.4.3");
+				info(Skript.isRunningMinecraft(1, 4, 3) ? "Version is later than 1.4.3" : "Version is earlier than 1.4.3");
+				info(Skript.isRunningMinecraft(1, 4, 3) ? "Version is later than 1.4.3" : "Version is earlier than 1.4.3");
+				info(Skript.isRunningMinecraft(1, 4, 3) ? "Version is later than 1.4.3" : "Version is earlier than 1.4.3");
+				info(Skript.isRunningMinecraft(1, 4, 3) ? "Version is later than 1.4.3" : "Version is earlier than 1.4.3");
+				info(Skript.isRunningMinecraft(1, 4, 3) ? "Version is later than 1.4.3" : "Version is earlier than 1.4.3");
 				ScriptLoader.loadScripts();
 				
 				Skript.info(m_finished_loading.toString());
@@ -453,7 +458,7 @@ public final class Skript extends JavaPlugin implements Listener {
 					}
 				});
 				final Graph similarPlugins = metrics.createGraph("similar plugins");
-				for (final String plugin : new String[] {"VariableTriggers", "CommandHelper", "Denizen", "rTriggers", "kTriggers", "TriggerCmds", "BlockScripts", "ScriptBlock", "buscript", "BukkitScript"}) {
+				for (final String plugin : new String[] {"VariableTriggers", "CommandHelper", "Denizen", "rTriggers", "kTriggers", "TriggerCmds", "BlockScripts", "ScriptBlock", "buscript", "BukkitScript", "Umbaska"}) {
 					assert plugin != null;
 					similarPlugins.addPlotter(new Plotter(plugin) {
 						@Override

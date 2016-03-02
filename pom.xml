@@ -15,24 +15,48 @@
 	</licenses>
 	<inceptionYear>2011</inceptionYear>
 	<scm>
-		<developerConnection>scm:git:git://github.com/Njol/Skript.git</developerConnection>
-		<connection>scm:git:git://github.com/Njol/Skript.git</connection>
-		<url>http://github.com/Njol/Skript</url>
+		<developerConnection>scm:git:git://github.com/nfell2009/Skript.git</developerConnection>
+		<connection>scm:git:git://github.com/nfell2009/Skript.git</connection>
+		<url>http://github.com/nfell2009/Skript</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>http://github.com/Njol/Skript/issues</url>
+		<url>http://github.com/nfell2009/Skript/issues</url>
 	</issueManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 
-		<dependency>
-			<groupId>org.bukkit</groupId>
-			<artifactId>bukkit</artifactId>
-			<version>1.8.7-R0.1-SNAPSHOT</version>
-		</dependency>
+	    <!--Spigot API 1.9 -->
+	    <dependency>
+	           <groupId>org.spigotmc</groupId>
+	           <artifactId>spigot-api</artifactId>
+	           <version>1.9-R0.1-SNAPSHOT</version>
+	           <scope>provided</scope>
+	    </dependency>
+	    <!--Bukkit API 1.9 -->
+	    <dependency>
+	            <groupId>org.bukkit</groupId>
+	            <artifactId>bukkit</artifactId>
+	            <version>1.9-R0.1-SNAPSHOT</version>
+	            <scope>provided</scope>
+	    </dependency>
+	    
+	    <!--Spigot API 1.8 -->
+	    <dependency>
+	           <groupId>org.spigotmc</groupId>
+	           <artifactId>spigot-api</artifactId>
+	           <version>1.8.8-R0.1-SNAPSHOT</version>
+	           <scope>provided</scope>
+	    </dependency>
+	    <!--Bukkit API 1.8 -->
+	    <dependency>
+	            <groupId>org.bukkit</groupId>
+	            <artifactId>bukkit</artifactId>
+	            <version>1.8.8-R0.1-SNAPSHOT</version>
+	            <scope>provided</scope>
+	    </dependency>
 
 		<dependency>
 			<groupId>lib.PatPeter.SQLibrary</groupId>
@@ -86,9 +110,9 @@
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>spigot-repo</id>
-			<url>http://hub.spigotmc.org/nexus/content/groups/public/</url>
-		</repository>
+        	<id>spigot-repo</id>
+        	<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    	</repository>
 		<repository>
 			<id>sqlibrary-repo</id>
 			<url>http://repo.dakanilabs.com/content/repositories/public/</url>
