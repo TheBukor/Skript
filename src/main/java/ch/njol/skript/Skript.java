@@ -289,7 +289,9 @@ public final class Skript extends JavaPlugin implements Listener {
 			return;
 		}
 		
-		SkriptConfig.load();
+		if(SkriptConfig.load()) {
+			Skript.error("FAILED TO LOAD CONFIG!");
+		}
 		Language.setUseLocal(true);
 		
 		Updater.start();
@@ -1205,12 +1207,12 @@ public final class Skript extends JavaPlugin implements Listener {
 		logEx(info);
 		logEx();
 		logEx("If you're developing an add-on for Skript this likely means that you have done something wrong.");
-		logEx("If you're a server admin however please go to http://dev.bukkit.org/server-mods/skript/tickets/");
+		logEx("If you're a server admin however please go to http://forums.skunity.com/t/4148?u=nfell2009");
 		logEx("and check whether this error has already been reported.");
-		logEx("If not please create a new ticket with a meaningful title, copy & paste this whole error into it,");
+		logEx("If not please reply with meaningful content, copy & paste this whole error into a pastebin (http://pastebin.com),");
 		logEx("and describe what you did before it happened and/or what you think caused the error.");
 		logEx("If you think that it's a trigger that's causing the error please post the trigger as well.");
-		logEx("By following this guide fixing the error should be easy and done fast.");
+		logEx("By following this guide fixing the error should be easy and done fast. IF YOU DON'T FOLLOW IT, WE'LL HUNT YOU DOWN.");
 		
 		logEx();
 		logEx("Stack trace:");

@@ -41,11 +41,13 @@ import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.EnderPearl;
 import org.bukkit.entity.Endermite;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Entity.Spigot;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Ghast;
 import org.bukkit.entity.Giant;
 import org.bukkit.entity.Golem;
+import org.bukkit.entity.Guardian;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.ItemFrame;
@@ -149,6 +151,7 @@ public class SimpleEntityData extends EntityData<Entity> {
 		types.add(new SimpleEntityDataInfo("zombie", Zombie.class));
 		types.add(new SimpleEntityDataInfo("shulker", Golem.class));
 		types.add(new SimpleEntityDataInfo("golem", Golem.class));
+		types.add(new SimpleEntityDataInfo("guardian", Guardian.class));
 		
 		if (Skript.classExists("org.bukkit.entity.ItemFrame")) {
 			types.add(new SimpleEntityDataInfo("item frame", ItemFrame.class));
@@ -172,7 +175,10 @@ public class SimpleEntityData extends EntityData<Entity> {
 		types.add(new SimpleEntityDataInfo("living entity", LivingEntity.class, true));
 		types.add(new SimpleEntityDataInfo("entity", Entity.class, true));
 		
+		
+		// projectiles
 		types.add(new SimpleEntityDataInfo("any fireball", Fireball.class, true));
+		
 	}
 	
 	static {
