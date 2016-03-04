@@ -157,7 +157,7 @@ import ch.njol.util.coll.iterator.EnumerationIterable;
 public final class Skript extends JavaPlugin implements Listener {
 	
 	// ================ PLUGIN ================
-	
+	private static Double myVersion = 1.2;
 	
 	@Nullable
 	private static Skript instance = null;
@@ -533,7 +533,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	}
 	
 	static Double getCurrentVersion() {
-		return 1.0;
+		return myVersion;
 	}
 	
 	static @Nullable String[] getLatestVersionInformation(){
