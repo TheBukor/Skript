@@ -65,6 +65,7 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import ch.njol.skript.Metrics.Graph;
 import ch.njol.skript.Metrics.Plotter;
+import ch.njol.skript.UpdateManager.UpdateMode;
 import ch.njol.skript.Updater.UpdateState;
 import ch.njol.skript.aliases.Aliases;
 import ch.njol.skript.bukkitutil.Workarounds;
@@ -157,7 +158,6 @@ import ch.njol.util.coll.iterator.EnumerationIterable;
 public final class Skript extends JavaPlugin implements Listener {
 	
 	// ================ PLUGIN ================
-	private static Double myVersion = 1.2;
 	
 	@Nullable
 	private static Skript instance = null;
@@ -510,46 +510,8 @@ public final class Skript extends JavaPlugin implements Listener {
 			}
 		}, this);
 		
-		
-		Bukkit.getScheduler().runTaskAsynchronously(getInstance(), new Runnable(){
-
-			@SuppressWarnings("null")
-			@Override
-			public void run() {
-				String[] s = getLatestVersionInformation();
-				Double version = Double.valueOf(s[0]) != null ? Double.valueOf(s[0]) : 0.0;
-				String url = String.valueOf(s[1]) != null ? String.valueOf(s[1]) : "https://forums.skunity.com/t/4184";
-				if(version == 0.0) {
-					Skript.warning("Failed to check for a new update from http://nfell2009.uk/skript/version! Returned value: " + version);
-				} else if(version > getCurrentVersion()) {
-					Skript.info("A new version of Skript has been found. Skript " + version + " has been released. It's recommended to try the latest version.");
-					Skript.info("Download link: " + url);
-				} else {
-					Skript.warning("An unknown error occoured when attempting to get current version number");
-				}
-			}
-			
-		});
-	}
-	
-	static Double getCurrentVersion() {
-		return myVersion;
-	}
-	
-	static @Nullable String[] getLatestVersionInformation(){
-		try {
-	      URL url = new URL("http://nfell2009.uk/skript/version");
-	      Scanner scanner = new Scanner(url.openStream());
-	      String str = "";
-	      while (scanner.hasNext()) {
-	          str = str + scanner.next();
-	      }
-	      scanner.close();
-	      return str.split("->");
-	    } catch (IOException ex) {
-	    	Skript.warning("An error occoured when trying to find the latest version information!");
-	    	return new String[] {null, null};
-	    }
+		new UpdateManager(UpdateMode.SKRIPT);
+		//new UpdateManager(UpdateMode.ALIASES);
 	}
 	
 	private static Version minecraftVersion = new Version(666);
