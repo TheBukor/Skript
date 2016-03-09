@@ -28,6 +28,7 @@ import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.eclipse.jdt.annotation.Nullable;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.bukkitutil.PlayerUtils;
 import ch.njol.skript.registrations.Classes;
 
@@ -45,12 +46,12 @@ public class EquipmentSlot extends Slot {
 			@Override
 			@Nullable
 			public ItemStack get(final EntityEquipment e) {
-				return e.getItemInHand();
+				return e.getItemInMainHand();
 			}
 			
 			@Override
 			public void set(final EntityEquipment e, final @Nullable ItemStack item) {
-				e.setItemInHand(item);
+				e.setItemInMainHand(item);
 			}
 		},
 		HELMET {
@@ -99,6 +100,23 @@ public class EquipmentSlot extends Slot {
 			@Override
 			public void set(final EntityEquipment e, final @Nullable ItemStack item) {
 				e.setBoots(item);
+			}
+		},
+		OFF_TOOL {
+			@SuppressWarnings("deprecation")
+			@Override
+			@Nullable
+			public ItemStack get(final EntityEquipment e) {
+				return (Skript.isRunningMinecraft(1, 9) ? e.getItemInOffHand() : e.getItemInHand()); //Compatibility reasons
+			}
+			
+			@SuppressWarnings("deprecation")
+			@Override
+			public void set(final EntityEquipment e, final @Nullable ItemStack item) {
+				if (Skript.isRunningMinecraft(1, 9))
+					e.setItemInOffHand(item);
+				else
+					e.setItemInHand(item); //Compatibility reasons
 			}
 		};
 		
