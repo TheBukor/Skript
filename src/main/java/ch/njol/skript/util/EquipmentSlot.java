@@ -43,15 +43,20 @@ public class EquipmentSlot extends Slot {
 	
 	public static enum EquipSlot {
 		TOOL {
+			@SuppressWarnings("deprecation")
 			@Override
 			@Nullable
 			public ItemStack get(final EntityEquipment e) {
-				return e.getItemInMainHand();
+				return (Skript.isRunningMinecraft(1, 9) ? e.getItemInMainHand() : e.getItemInHand()); //Compatibility reasons
 			}
 			
+			@SuppressWarnings("deprecation")
 			@Override
 			public void set(final EntityEquipment e, final @Nullable ItemStack item) {
-				e.setItemInMainHand(item);
+				if (Skript.isRunningMinecraft(1, 9))
+					e.setItemInMainHand(item);
+				else
+					e.setItemInHand(item); //Compatibility reasons
 			}
 		},
 		HELMET {
