@@ -874,6 +874,7 @@ public class ItemType implements Unit, Iterable<ItemData>, Container<ItemStack>,
 		if (buf == null)
 			return false;
 		// uses an array of size 36. some unknown bug with bukkit
+		/* This was causing issues with clearing some slots (armor, offhand and last slot)
 		if (buf.length > 36) {
 			ItemStack[] tBuf = buf.clone();
 			buf = new ItemStack[35];
@@ -881,6 +882,7 @@ public class ItemType implements Unit, Iterable<ItemData>, Container<ItemStack>,
 				buf[i] = tBuf[i];
 			}
 		}
+		*/
 		final boolean b = addTo(buf);
 		invi.setContents(buf);
 		return b;

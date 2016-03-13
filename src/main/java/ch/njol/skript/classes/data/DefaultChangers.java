@@ -217,10 +217,12 @@ public class DefaultChangers {
 					case ADD:
 						assert delta != null;
 						if(delta instanceof ItemStack[]) {
+							/* This was causing issues with clearing some slots (armor, offhand and last slot)
 							ItemStack[] items = (ItemStack[]) delta;
 							if(items.length > 36) {
 								return;
 							}
+							*/
 							for (final Object d : delta) {
 								if (d instanceof Inventory) {
 									for (final ItemStack i : (Inventory) d) {
