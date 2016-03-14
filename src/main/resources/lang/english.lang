@@ -818,6 +818,8 @@ damage causes:
 	suicide: suicide
 	thorns: thorns
 	custom: unknown, custom, plugin, a plugin
+	fly_into_wall: flying into a wall, flying into wall
+	dragon_breath: dragon breath, ender dragon breath
 
 # -- Game Modes --
 game modes:

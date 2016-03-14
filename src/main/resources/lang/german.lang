@@ -775,6 +775,8 @@ damage causes:
 	suicide: Suizuid
 	thorns: Dornen
 	custom: unbekannt, Plugin
+	fly_into_wall: flying into a wall, flying into wall #If someone could translate this, it would be great.
+	dragon_breath: dragon breath, ender dragon breath
 
 # -- Game Modes --
 game modes:
